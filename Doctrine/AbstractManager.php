@@ -2,17 +2,15 @@
 
 namespace AppVerk\Components\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\Persistence\ObjectRepository;
 
 abstract class AbstractManager implements ManagerInterface
 {
-    /** @var ObjectManager */
     protected $objectManager;
 
     protected $className;
 
-    public function __construct($className, ObjectManager $objectManager)
+    public function __construct($className, $objectManager)
     {
         $this->className = $className;
         $this->objectManager = $objectManager;
