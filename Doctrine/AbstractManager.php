@@ -2,7 +2,8 @@
 
 namespace AppVerk\Components\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 abstract class AbstractManager implements ManagerInterface
 {
@@ -10,7 +11,7 @@ abstract class AbstractManager implements ManagerInterface
 
     protected $className;
 
-    public function __construct($className, $objectManager)
+    public function __construct($className, EntityManagerInterface $objectManager)
     {
         $this->className = $className;
         $this->objectManager = $objectManager;
@@ -49,11 +50,11 @@ abstract class AbstractManager implements ManagerInterface
     }
 
     /**
-     * @return ObjectRepository
+     * @return EntityRepository
      */
     public function getRepository()
     {
-        /** @var ObjectRepository $objectRepository */
+        /** @var EntityRepository $objectRepository */
         $objectRepository = $this->objectManager->getRepository($this->className);
 
         return $objectRepository;
