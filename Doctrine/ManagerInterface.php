@@ -2,15 +2,15 @@
 
 namespace AppVerk\Components\Doctrine;
 
-use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 interface ManagerInterface
 {
-    public function __construct($className, ObjectManager $objectManager);
+    public function __construct($className, EntityManagerInterface $objectManager);
 
     /**
-     * @return ObjectRepository
+     * @return EntityRepository
      */
     public function getRepository();
 
