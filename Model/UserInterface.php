@@ -2,10 +2,9 @@
 
 namespace AppVerk\Components\Model;
 
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-use DateTime;
+use Symfony\Component\Security\Core\User\UserInterface as BaseUserInterface;
 
-interface UserInterface extends AdvancedUserInterface, \Serializable
+interface UserInterface extends BaseUserInterface, \Serializable
 {
     /**
      * Default role for every user
