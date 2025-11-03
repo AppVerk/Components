@@ -2,10 +2,10 @@
 
 namespace AppVerk\Components\Model;
 
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
-use DateTime;
+use Symfony\Component\Security\Core\User\UserInterface as SymfonyUserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
-interface UserInterface extends AdvancedUserInterface, \Serializable
+interface UserInterface extends SymfonyUserInterface, PasswordAuthenticatedUserInterface, \Serializable
 {
     /**
      * Default role for every user
@@ -74,10 +74,7 @@ interface UserInterface extends AdvancedUserInterface, \Serializable
      */
     public function setEmail($email);
 
-    /**
-     * @return string
-     */
-    public function getPassword();
+    public function getPassword(): ?string;
 
     /**
      * @param string $password
